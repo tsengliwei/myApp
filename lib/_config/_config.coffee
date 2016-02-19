@@ -4,11 +4,11 @@
 @Config =
 
 	# Basic Details
-	name: 'My App'
+	name: 'medcrowdsourcing'
 	title: ->
-			TAPi18n.__ 'configTitle'
+			TAPi18n.__ 'medcrowdsourcing'
 	subtitle: ->
-			TAPi18n.__ 'configSubtitle'
+			TAPi18n.__ 'a crowdsourcing website that let people to label vessels'
 	logo: ->
 		'<b>' + @name + '</b>'
 	footer: ->
@@ -41,17 +41,15 @@
 
 	socialMedia:
 		facebook:
-			url: 'http://facebook.com/benjaminpeterjones'
+			url: 'https://www.facebook.com/liwei.tseng.9'
 			icon: 'facebook'
 		twitter:
-			url: 'http://twitter.com/BenPeterJones'
+			url: 'https://twitter.com/tseng_wei'
 			icon: 'twitter'
 		github:
-			url: 'http://github.com/yogiben'
+			url: 'https://github.com/tsengliwei'
 			icon: 'github'
-		info:
-			url: 'http://meteorfactory.io'
-			icon: 'link'
+		
 
 	#Routes
 	homeRoute: '/'
