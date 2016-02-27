@@ -1,8 +1,64 @@
 <template name="label">
-	<div class="template-dashboard">
+	<body>
+	<div class="template-label">
 		<div class="container">
+
+  <h1>Vessel Labeling</h1>
+
+  <span id="controls">Controls</span>
+  <canvas id="canvas-display" width="800" height="800"></canvas>
+
+  <br/>
+  <ul id="colors">
+      <li style="background-color:black;"> </li>
+      <li style="background-color:red;"> </li>
+      <li style="background-color:green;"> </li>
+      <li style="background-color:orange;"> </li>
+      <li style="background-color:brown;"> </li>
+      <li style="background-color:#d2232a;"> </li>
+      <li style="background-color:#fcb017;"> </li>
+      <li style="background-color:#fff460;"> </li>
+      <li style="background-color:#9ecc3b;"> </li>
+      <li style="background-color:#fcb017;"> </li>
+      <li style="background-color:#fff460;"> </li>
+      <li style="background-color:#F43059;"> </li>
+      <li style="background-color:#82B82C;"> </li>
+      <li style="background-color:#0099FF;"> </li>
+      <li style="background-color:#ff00ff;"> </li>
+  </ul>
+  <br style="clear:both;"/>
+  <br style="clear:both;"/>
+  <div id="control-buttons">
+      <div style="float:left;">
+      <button id="undo" href="#" disabled="disabled">Undo</button>
+      <button id="clear" href="#">Reset</button>
+      <button id="export" href="#">Save as Image</button>
+      </div>
+      <div style="float:left;margin-left: 22px;text-align: center;width: 130px;">
+      Brush Size:<br />
+      <input name="brush" id="brush_size" type="range" value="5"  min="0" max="20" />
+      </div>
+  </div>
+
 				<h1>label page</h1>
 				{{> posts}}
+				<div class="panel-body">
+					{{#autoForm id="add" collection="Posts" type="insert"}}
+					{{> afQuickField name="title"}}
+					{{> afQuickField name="content"}}
+					{{> afQuickField name="picture"}}
+					<button type="submit" class="btn btn-primary">{{_ "add_post_btn"}}</button>
+					{{/autoForm}}
+				</div>
 		</div>
 	</div>
+</body>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+				$('#canvas-display').paintBrush();
+				});
+
+</script>
+
 </template>
