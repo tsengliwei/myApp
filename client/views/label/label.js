@@ -10,11 +10,11 @@ Template.label.onRendered(function () {
               var settings = {
                'targetID' : 'canvas-display'
           },
-  
+
               $this = $(this),
               o = {},
               ui = {},
-          
+
           core = {
               init : function(options) {
                   ui.$loadParentDiv = o.targetID;
@@ -22,7 +22,7 @@ Template.label.onRendered(function () {
                   core.controls();
                   //core.toggleScripts();
               },
-  
+
               canvasInit : function() {
                       context = document.getElementById("canvas-display").getContext("2d");
                       context.lineCap = "round";
@@ -35,17 +35,17 @@ Template.label.onRendered(function () {
                       background.src = url;
                       context.fillRect(0, 0, context.canvas.width, context.canvas.height);
                       background.onload = function(){
-                          context.drawImage(background,0,0);   
+                          context.drawImage(background,0,0);
                       };
                       context.restore();
               },
-              
+
               saveActions : function() {
                       var imgData = document.getElementById("canvas-display").toDataURL("image/png");
                       undoHistory.push(imgData);
                       $('#undo').removeAttr('disabled');
               },
-              
+
               undoDraw : function() {
                   if(undoHistory.length > 0){
                       var undoImg = new Image();
@@ -56,24 +56,25 @@ Template.label.onRendered(function () {
                       undoImg.src = undoHistory.pop();
                       if(undoHistory.length == 0)
                           $('#undo').attr('disabled','disabled');
-                  }                            
+                  }
               },
-  
+
               draw : function() {
-                      var canvas, cntxt, top, left, draw = 0;                
+                      var canvas, cntxt, top,left, draw = 0;
+
                       canvas = document.getElementById("canvas-display");
                       cntxt = canvas.getContext("2d");
-                      // top = $('#canvas-display').offset().top;
+                      //top = $('#canvas-display').offset().top;
                       // left = $('#canvas-display').offset().left;
                       core.canvasInit();
-                          
+
                       // //Drawing Code
                       $('#canvas-display').mousedown(function(e){
                           if(e.button == 0){
                               draw = 1;
                               core.saveActions(); //Start The drawing flow. Save the state
                               cntxt.beginPath();
-                              cntxt.moveTo(e.pageX, e.pageY);
+                              cntxt.moveTo(e.pageX, e.pageY-100);
                               console.log("x: " + e.pageX);
                               console.log("y: " + e.pageY);
                           } else {
@@ -85,20 +86,20 @@ Template.label.onRendered(function () {
                                   draw = 1;
                               } else {
                                   draw = 0;
-                                  cntxt.lineTo(e.pageX+1, e.pageY+1);
+                                  cntxt.lineTo(e.pageX+1, e.pageY+1-100);
                                   cntxt.stroke();
                                   cntxt.closePath();
                               }
                       })
                        .mousemove(function(e){
                               if(draw == 1){
-                                  cntxt.lineTo(e.pageX+1, e.pageY+1);
+                                  cntxt.lineTo(e.pageX+1, e.pageY+1-100);
                                   cntxt.stroke();
                               }
                       });
-                                                                                          
+
               },
-              
+
               controls : function() {
                       canvas = document.getElementById("canvas-display");
                       cntxt = canvas.getContext("2d");
@@ -109,7 +110,7 @@ Template.label.onRendered(function () {
                               originalURL = document.getElementsByTagName("canvas")[0].getAttribute("class");
                               Meteor.call("addLabel", pictureURL, originalURL);
                        });
-                                  
+
                        $('#clear').on("click", function(e){
                                e.preventDefault();
                               canvas.width = canvas.width;
@@ -120,12 +121,12 @@ Template.label.onRendered(function () {
                               //core.toggleScripts();
                               undoHistory = [];
                         });
-                                  
+
                         $('#brush_size').change(function(e){
                                 cntxt.lineWidth = $(this).val();
                                 //core.toggleScripts();
-                        });            
-                        
+                        });
+
                         $('#colors li').on("click", function(e){
                                 e.preventDefault();
                               $('#colors li').removeClass('selected');
@@ -133,33 +134,33 @@ Template.label.onRendered(function () {
                               cntxt.strokeStyle = $(this).css('background-color');
                               core.toggleScripts();
                         });
-                  
+
                                   //Undo Binding
                         $('#undo').on("click",  function(e){
                                 e.preventDefault();
                               core.undoDraw()
                               core.toggleScripts();
                         });
-                  
+
                         //Init the brush and color
                         $('#colors li:first').click();
                         $('#brush_size').change();
-                                  
+
                         $('#controls').on("click", function(){
                                 core.toggleScripts();
                         });
               },
-              
+
               toggleScripts : function() {
                        $('#colors').slideToggle(400);
                        $('#control-buttons').toggle(400);
               }
           };
-  
+
           $.extend(true, o, settings, options);
-  
+
           core.init();
-  
+
       };
 
   })(jQuery);

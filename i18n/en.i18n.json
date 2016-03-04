@@ -4,7 +4,7 @@
 	"configName": "My App",
 	"configTitle": "Make Meteor Apps. Fast.",
 	"configSubtitle": "Create beautiful and functioning Meteor apps really quick",
-	
+
 	/*Home*/
 	"getstarted": "Get Started",
 	"dashboard": "Go to dashboard",
@@ -12,15 +12,15 @@
 	"intro": "Make Meteor Apps. Fast.",
 	"how": "How It Works",
 	"step_1": "Step 1",
-	"step_1_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	"step_1_text": "Register as a user",
 	"step_2": "Step 2",
-	"step_2_text": "Oratio me istius philosophi non offendit; Qua tu etiam inprudens utebare non numquam.",
+	"step_2_text": "Choose a picture in the dashboard to label.",
 	"step_3": "Step 3",
-	"step_3_text": "Et ille ridens: Video, inquit, quid agas; Duo Reges: constructio interrete.",
-	"section_ipad_header": "A revolutionary product",
-	"section_ipad_text": "Do really cool stuff really quickly",
-	"section_ipad_btn": "Made by MeteorFactory",
-	"final_text": "Your life will be instantly better.",
+	"step_3_text": "Upload your own pictures for others to label",
+	"section_ipad_header": "Labeling images made more efficient",
+	"section_ipad_text": "Have fun while producing something meaningful",
+	"section_ipad_btn": "Have a try",
+	"final_text": "Discover wonderfulness",
 	"final_cta": "Take a look",
 
 	/*Shared*/
@@ -43,7 +43,7 @@
 
 	/*Dashboard*/
 	"add_post": "Add a Post",
-	"add_post_btn": "Add Post",
+	"add_post_btn": "Upload",
 	"add_post_modal": "Add with a modal",
 	"add_post_modal_btn": "Add a new post",
 	"edit_post": "Edit post",
@@ -70,7 +70,7 @@
 	"profilePicture": "Profile Picture"
 
 
-	
+
 
 
 }
