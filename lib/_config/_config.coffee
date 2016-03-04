@@ -21,7 +21,7 @@
 
 	# Username - if true, users are forced to set a username
 	username: false
-	
+
 	# Localisation
 	defaultLanguage: 'en'
 	dateFormat: 'D/M/YYYY'
@@ -41,15 +41,15 @@
 
 	socialMedia:
 		facebook:
-			url: 'https://www.facebook.com/liwei.tseng.9'
+			url: ''
 			icon: 'facebook'
 		twitter:
-			url: 'https://twitter.com/tseng_wei'
+			url: ''
 			icon: 'twitter'
 		github:
-			url: 'https://github.com/tsengliwei'
+			url: ''
 			icon: 'github'
-		
+
 
 	#Routes
 	homeRoute: '/'
