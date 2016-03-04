@@ -15,4 +15,12 @@ Router.map ->
       posts: Posts.find({},{sort: {createdAt: -1}}).fetch()
 
   @route "label",
-    path: "/label"
+    path: "/label/:_id"
+    waitOn: ->
+      [
+        subs.subscribe 'posts', @params._id
+        
+        subs.subscribe 'attachments'
+      ]
+    data: ->
+      post: Posts.findOne(_id: @params._id)
