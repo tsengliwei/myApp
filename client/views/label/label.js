@@ -123,7 +123,8 @@ Template.label.onRendered(function () {
                         });
 
                         $('#brush_size').change(function(e){
-                                cntxt.lineWidth = $(this).val();
+                                cntxt.lineWidth = ($(this).val())/10;
+
                                 //core.toggleScripts();
                         });
 
